@@ -19,7 +19,9 @@ jobs:
       with:
         flutter-version: '3.13.0'  # 可按需调整
         channel: stable
-
+    - name: skip telemetry
+      run: flutter --disable-telemetry
+      
     - name: Install Dependencies
       run: flutter pub get
 
