@@ -1,0 +1,33 @@
+name: Build Flutter APK
+
+on:
+  workflow_dispatch:  # 手动触发
+  push:               # 或每次 push 都触发
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.13.0'  # 可按需调整
+        channel: stable
+
+    - name: Install Dependencies
+      run: flutter pub get
+
+    - name: Build Debug APK
+      run: flutter build apk --debug
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-debug.apk
+        path: build/app/outputs/flutter-apk/app-debug.apk
