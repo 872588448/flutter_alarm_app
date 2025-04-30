@@ -1,0 +1,29 @@
+name: flutter_alarm_app
+description: A Flutter app for big/small week alarm clock
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  getwidget: ^3.0.1
+  shared_preferences: ^2.2.2
+  flutter_local_notifications: ^17.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/default_alarm.mp3
+    - assets/
+
+android_alarm_manager_plus: ^3.0.0
+
+audioplayers: ^5.2.1
+
+file_picker: ^6.1.1
